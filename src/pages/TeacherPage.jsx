@@ -5,7 +5,6 @@ const TeacherPage = () => {
   const rows = [
     { Name: 'Alice Brown', Email: 'alice@example.com', Class: '10th Grade' },
     { Name: 'Bob Green', Email: 'bob@example.com', Class: '11th Grade' },
-    // Add more rows as needed
   ];
 
   return (

@@ -7,7 +7,6 @@ const AdminPage = () => {
   const rows = [
     { Name: 'John Doe', Email: 'john@example.com', Department: 'Math' },
     { Name: 'Jane Smith', Email: 'jane@example.com', Department: 'Science' },
-    // Add more rows as needed
   ];
 
   return (
