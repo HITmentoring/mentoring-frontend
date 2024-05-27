@@ -1,5 +1,3 @@
-// src/pages/TeacherPage.js
-import React from 'react';
 import Table from '../components/Table';
 
 const TeacherPage = () => {

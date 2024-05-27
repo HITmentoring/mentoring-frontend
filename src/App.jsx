@@ -1,24 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
-import Admin from './pages/AdminPage';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import StudentPage from './pages/StudentPage';
-import TeacherPage from './pages/TeacherPage';
+
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { useLogout } from "./hooks/useLogout";
+import PageRoutes from "./pages/PageRoutes";
+
+import AuthVerify from './utils/authVerify';
+
 
 
 export default function App() {
+  const { logout } = useLogout();
   return (
     <>
-    <Routes>
-    <Route path="/" exact element={<Home />} />
-    <Route path="/login" exact element={<Login />} />
-    <Route path="/student" exact element={<StudentPage />} />
-    <Route path="/teacher" exact element={<TeacherPage />} />
-    <Route path="/admin" exact element={<Admin />} />
-
-
-
-    </Routes>
+      <Navbar />
+      <PageRoutes />
+      <AuthVerify logout={logout} />
+      <Footer />
     </>
   )
 }

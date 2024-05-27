@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import StudentLogin from '../components/StudentLogin';
-import TeacherLogin from '../components/TeacherLogin';
+import LoginForm from '../components/LoginForm';
 
 const Login = () => {
   const [role, setRole] = useState('student');
 
   return (
     <div className="bg-[#f7f3f3] min-h-screen flex flex-col">
-      <Navbar />
       <div className="flex flex-grow items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
           <div className="mb-4">
@@ -23,10 +19,9 @@ const Login = () => {
               <option value="teacher">Teacher</option>
             </select>
           </div>
-          {role === 'student' ? <StudentLogin /> : <TeacherLogin />}
+          {role === 'student' ? <LoginForm role={role} userFieldId="Student ID" /> : <LoginForm role={role} userFieldId="Employee ID" />}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
