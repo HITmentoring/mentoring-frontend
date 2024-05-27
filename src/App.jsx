@@ -1,7 +1,21 @@
+
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { useLogout } from "./hooks/useLogout";
+import PageRoutes from "./pages/PageRoutes";
+
+import AuthVerify from './utils/authVerify';
+
+
+
 export default function App() {
+  const { logout } = useLogout();
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Navbar />
+      <PageRoutes />
+      <AuthVerify logout={logout} />
+      <Footer />
+    </>
   )
 }
