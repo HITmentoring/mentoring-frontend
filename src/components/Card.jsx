@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-
-
 const ProgramCard = ({ image, title, description }) => {
   return (
     <div className="p-3 border rounded-lg shadow-lg bg-white">

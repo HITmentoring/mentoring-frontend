@@ -9,3 +9,10 @@ export const localSigin = async (userFieldId, userId, password) => {
   })
   return res;
 }
+
+export const resetPassword = async (userFieldId, userId) => {
+  const res = await API.post("/auth/request-reset-password", {
+    [userFieldId]: userId
+  })
+  return res;
+}
