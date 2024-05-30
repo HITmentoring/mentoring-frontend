@@ -1,16 +1,41 @@
+import { useEffect, useState } from 'react';
+import { deleteStudent, getAllStudents } from '../api/protectedApi';
 import Table from '../components/Table';
 
 const TeacherPage = () => {
-  const columns = ['Name', 'Email', 'Class'];
-  const rows = [
-    { Name: 'Alice Brown', Email: 'alice@example.com', Class: '10th Grade' },
-    { Name: 'Bob Green', Email: 'bob@example.com', Class: '11th Grade' },
-  ];
+  const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await getAllStudents();
+        setStudents(response.data);
+      } catch (error) {
+        console.error('Failed to fetch teachers:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStudents();
+  }, [])
+
+  const columns = ["studentId", "email", "fullName", "rollNo", "regNo", "dept", "startYear", "endYear", "batchNo", "groupNo"];
+
+  async function handleDelete(student) {
+    try {
+      await deleteStudent(student._id);
+      setStudents((prev) => prev.filter(t => t._id !== student._id));
+    } catch (error) {
+      console.error('Failed to delete teacher:', error);
+    }
+  }
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Student Mentees</h1>
-      <Table columns={columns} rows={rows} />
+      <h1 className="text-2xl font-bold mb-4">Student List</h1>
+      {loading ? <p>Loading...</p> : <Table from="teacher" to="student" columns={columns} rows={students} onDelete={handleDelete} />}
     </div>
   );
 };

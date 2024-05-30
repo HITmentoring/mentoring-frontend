@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from "react-router-dom";
 
-const Table = ({ columns, rows, onEdit, onDelete }) => {
+const Table = ({ from, to, columns, rows, onDelete }) => {
 
   return (
     <div className="overflow-x-auto">
@@ -36,12 +36,14 @@ const Table = ({ columns, rows, onEdit, onDelete }) => {
               ))}
               <td className="px-4 py-2 border-b border-gray-200 text-sm text-center">
                 <div className="inline-flex space-x-2">
-                  <button
-                    onClick={() => onEdit(row)}
-                    className="bg-blue-500 text-white px-3 py-1 rounded text-xs  w-16 hover:bg-blue-700"
-                  >
-                    Edit
-                  </button>
+                  <Link to={`/${from}/edit-${to}`}
+                    state={row}>
+                    <button
+                      className="bg-blue-500 text-white px-3 py-1 rounded text-xs  w-16 hover:bg-blue-700"
+                    >
+                      Edit
+                    </button>
+                  </Link>
                   <button
                     onClick={() => onDelete(row)}
                     className="bg-red-500 text-white px-3 py-1 rounded text-xs  w-16 hover:bg-red-700"

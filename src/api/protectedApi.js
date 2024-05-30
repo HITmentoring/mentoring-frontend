@@ -66,7 +66,7 @@ export const createTeacher = async (teacherData) => {
 }
 
 export const updateTeacher = async (id, teacherData) => {
-  const res = await API.put(`/admin/update/${id}`, {
+  const res = await API.put(`/admin/edit/${id}`, {
     ...teacherData
   })
   return res;

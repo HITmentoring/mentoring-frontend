@@ -1,18 +1,44 @@
 // src/pages/AdminPage.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { deleteTeacher, getAllTeachers } from '../api/protectedApi';
 import Table from '../components/Table';
 
 const AdminPage = () => {
-  const columns = ['Name', 'Email', 'Department'];
-  const rows = [
-    { Name: 'John Doe', Email: 'john@example.com', Department: 'Math' },
-    { Name: 'Jane Smith', Email: 'jane@example.com', Department: 'Science' },
-  ];
+  const [teachers, setTeachers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeachers = async () => {
+      try {
+        const response = await getAllTeachers();
+        setTeachers(response.data);
+      } catch (error) {
+        console.error('Failed to fetch teachers:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeachers();
+  }, [])
+
+  const columns = ['empId', 'email', 'fullName', 'dept', 'ofYear', 'ofBatch', 'ofGroup'];
+
+  async function handleDelete(teacher) {
+    try {
+      await deleteTeacher(teacher._id);
+      setTeachers((prevTeachers) => prevTeachers.filter(t => t._id !== teacher._id));
+    } catch (error) {
+      console.error('Failed to delete teacher:', error);
+    }
+  }
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Teacher List</h1>
-      <Table columns={columns} rows={rows} />
+      {
+        loading ? <p>Loading...</p> : (<Table from="admin" to="teacher" columns={columns} rows={teachers} onDelete={handleDelete} />)
+      }
     </div>
   );
 };

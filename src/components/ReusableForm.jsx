@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import { useState } from 'react';
 
 const ReusableForm = ({ title, fields, initialValues = {}, onSubmit }) => {
-  const [formValues, setFormValues] = React.useState(initialValues);
+  const [formValues, setFormValues] = useState(initialValues);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +25,7 @@ const ReusableForm = ({ title, fields, initialValues = {}, onSubmit }) => {
             <input
               type={field.type || 'text'}
               name={field.name}
-              placeholder={field.placeholder}
+              placeholder={field.placeholder || ''}
               value={formValues[field.name] || ''}
               onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
