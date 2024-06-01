@@ -8,6 +8,7 @@ import StudentEdit from './StudentEditPage';
 import StudentPage from './StudentPage';
 import TeacherEdit from './TeacherEditPage';
 import TeacherPage from './TeacherPage';
+import CreateTeacher from './CreateTeacher';
 
 const PageRoutes = () => {
   const { isLoggedIn, loading } = useAuthContext();
@@ -22,6 +23,7 @@ const PageRoutes = () => {
           <Route path="/teacher" exact element={isLoggedIn ? <TeacherPage /> : <Navigate to="/" />} />
           <Route path="/admin" exact element={isLoggedIn ? <Admin /> : <Navigate to="/" />} />
           <Route path='/admin/edit-teacher' exact element={isLoggedIn ? <TeacherEdit /> : <Navigate to="/" />} />
+          <Route path="/admin/create-teacher" element={<CreateTeacher />} />
           <Route path='/teacher/edit-student' exact element={isLoggedIn ? <StudentEdit /> : <Navigate to="/" />} />
           <Route path="/teacher/create-student" exact element={isLoggedIn ? <CreateStudent /> : <Navigate to="/" />} />
         </Routes>

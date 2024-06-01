@@ -9,7 +9,6 @@ const Login = () => {
       <div className="flex flex-grow items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">I am a</label>
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
