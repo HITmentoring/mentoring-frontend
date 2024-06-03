@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from '../hooks/useLogout';
 
 const Navbar = () => {
-  const { isLoggedIn } = useAuthContext();
+  const { isLoggedIn, user } = useAuthContext();
   const { logout } = useLogout();
 
   return (
@@ -14,6 +14,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" className="w-16 h-16 rounded-full mb-4" />
         </Link>
         <div className="space-x-4 flex items-center">
+          {isLoggedIn && <a href={`/${user.role}`} className="hover:text-gray-300">Dashboard</a>}
           <a href="/about" className="hover:text-gray-300">About</a>
           <a href="/contact" className="hover:text-gray-300">Contact</a>
           {isLoggedIn ? (

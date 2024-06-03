@@ -22,7 +22,7 @@ const AdminPage = () => {
     fetchTeachers();
   }, [])
 
-  const columns = ['empId', 'email', 'fullName', 'dept', 'ofYear', 'ofBatch', 'ofGroup'];
+  const columns = ['empId', , 'fullName', 'email', 'phoneNo', 'dept', 'ofYear', 'ofBatch', 'ofGroup'];
 
   async function handleDelete(teacher) {
     try {

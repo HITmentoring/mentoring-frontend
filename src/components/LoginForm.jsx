@@ -5,7 +5,7 @@ import { localSigin } from '../api/commonApi';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { parseJwt } from '../utils/authVerify';
 
-const LoginForm = ({ role, userFieldId }) => {
+const LoginForm = ({ userType, userFieldId }) => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,30 +18,29 @@ const LoginForm = ({ role, userFieldId }) => {
 
     try {
       let response;
-      if (role === "student") {
+      let userRole;
+      if (userType === "student") {
         response = await localSigin('studentId', userId, password);
-      } else if (role === "teacher") {
+      } else if (userType === "teacher") {
         response = await localSigin('empId', userId, password);
       }
 
 
       if (response.status === 200) {
         const { data } = response;
-        localStorage.setItem("userinfo", JSON.stringify(data))
-
-        dispatch({ type: "LOGIN", payload: data })
-
         const userData = parseJwt(data.token);
-        if (userData.role) {
-          const { role } = userData;
-          if (role === "ADMIN") {
-            navigate('/admin');
-          } else if (role === "MENTOR") {
-            navigate("/teacher")
-          } else {
-            navigate("/student");
-          }
+        if (userData.role === "ADMIN") {
+          userRole = "admin";
+        } else if (userData.role === "MENTOR") {
+          userRole = "teacher";
+        } else {
+          userRole = "student"; // ! Possible bug source
         }
+
+        localStorage.setItem("userinfo", JSON.stringify({ token: data.token, role: userRole }))
+        dispatch({ type: "LOGIN", payload: { data, role: userRole } })
+
+        navigate(`/${userRole}`)
       }
     } catch (error) {
       const errorResponse = error.response.data;

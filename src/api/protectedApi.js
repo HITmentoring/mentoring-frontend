@@ -10,6 +10,12 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
+//student route
+export const getStudent = async () => {
+  const res = await API.get("/student")
+  return res;
+}
+
 //teacher api for students
 export const getAllStudents = async () => {
   const res = await API.get("/teacher")
@@ -17,11 +23,12 @@ export const getAllStudents = async () => {
 }
 
 export const createStudent = async (studentData) => {
-  const { studentId, fullName, email, regNo, rollNo, dept, startYear, endYear, batchno, groupNo } = studentData;
+  const { studentId, fullName, email, phoneNo, regNo, rollNo, dept, startYear, endYear, batchno, groupNo } = studentData;
   const res = await API.post("/teacher/create-student", {
     studentId,
     fullName,
     email,
+    phoneNo,
     regNo,
     rollNo,
     dept,
@@ -52,11 +59,12 @@ export const getAllTeachers = async () => {
 }
 
 export const createTeacher = async (teacherData) => {
-  const { empId, fullName, dept, ofYear, ofBatch, ofGroup } = teacherData;
+  const { empId, fullName, email, phoneNo, dept, ofYear, ofBatch, ofGroup } = teacherData;
   const res = await API.post("/admin/create-teacher", {
-    email,
     empId,
     fullName,
+    email,
+    phoneNo,
     dept,
     ofYear,
     ofBatch,

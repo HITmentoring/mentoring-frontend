@@ -21,7 +21,7 @@ const TeacherPage = () => {
     fetchStudents();
   }, [])
 
-  const columns = ["studentId", "email", "fullName", "rollNo", "regNo", "dept", "startYear", "endYear", "batchNo", "groupNo"];
+  const columns = ["studentId", "fullName", "email", "phoneNo", "rollNo", "regNo", "dept", "startYear", "endYear", "batchNo", "groupNo"];
 
   async function handleDelete(student) {
     try {
@@ -34,7 +34,7 @@ const TeacherPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Student List</h1>
+      <h1 className="text-2xl font-bold mb-4">Students List</h1>
       {loading ? <p>Loading...</p> : <Table from="teacher" to="student" columns={columns} rows={students} onDelete={handleDelete} />}
     </div>
   );

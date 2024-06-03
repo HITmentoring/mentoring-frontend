@@ -1,16 +1,14 @@
-/* eslint-disable react/prop-types */
-// src/components/StudentDetails.js
 import { useState } from 'react';
 
 const StudentDetails = () => {
-    const student = {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        department: 'Computer Science',
-        year: '3rd Year',
-        dob: '2000-01-01',
-        phone: '123-456-7890',
-      };
+  const student = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    department: 'Computer Science',
+    year: '3rd Year',
+    dob: '2000-01-01',
+    phone: '123-456-7890',
+  };
   const [certificates, setCertificates] = useState([]);
 
   const handleFileUpload = (event) => {

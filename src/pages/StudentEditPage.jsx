@@ -10,6 +10,7 @@ function StudentEdit() {
     { name: 'studentId', label: 'Student ID' },
     { name: 'email', label: 'Email', type: 'email' },
     { name: 'fullName', label: 'Name' },
+    { name: 'phoneNo', label: 'Phone No', type: 'tel' },
     { name: "rollNo", label: "Roll No" },
     { name: "regNo", label: "Reg. No" },
     { name: 'dept', label: 'Department' },

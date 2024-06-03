@@ -8,8 +8,9 @@ function CreateTeacher() {
     { name: 'empId', label: 'Employee ID' },
     { name: 'email', label: 'Email', type: 'email' },
     { name: 'fullName', label: 'Name' },
+    { name: 'phoneNo', label: 'Phone No', type: 'tel' },
     { name: 'dept', label: 'Department' },
-    { name: 'ofYear', label: 'Year' },
+    { name: 'ofYear', label: 'year' },
     { name: 'ofBatch', label: 'Batch' },
     { name: 'ofGroup', label: 'Group' }
   ];
