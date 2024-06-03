@@ -2,7 +2,7 @@ import { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 
 const Login = () => {
-  const [role, setRole] = useState('student');
+  const [role, setRole] = useState('teacher');
 
   return (
     <div className="bg-[#f7f3f3] min-h-screen flex flex-col">
@@ -14,8 +14,8 @@ const Login = () => {
               onChange={(e) => setRole(e.target.value)}
               className="w-full p-2 border rounded"
             >
-              <option value="student">Student</option>
               <option value="teacher">Teacher</option>
+              <option value="student">Student</option>
             </select>
           </div>
           {role === 'student' ? <LoginForm role={role} userFieldId="Student ID" /> : <LoginForm role={role} userFieldId="Employee ID" />}

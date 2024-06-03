@@ -1,14 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
-// src/pages/Home.js
-
-import programImage1 from '../assets/hit3.jpeg';
+import femaleUser from '../assets/femaleUser.png';
+import maleUser from '../assets/maleUser.png';
 import Card from '../components/Card';
 import PhotoCarousel from '../components/Carousel';
 import NoticeCard from '../components/NoticeCard';
-// Uncomment and import other images if you have them
-// import programImage2 from '../assets/programImage2.jpg';
-// import programImage3 from '../assets/programImage3.jpg';
-// import programImage4 from '../assets/programImage4.jpg';
+
 
 const Home = () => {
   return (
@@ -25,24 +20,24 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-center">Teachers</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
             <Card
-              image={programImage1}
-              title="Program 1"
-              description="Description of program 1."
+              image={maleUser}
+              title="Teacher 1"
+              description="Description of Teacher 1."
             />
             <Card
-              image={programImage1}
-              title="Program 2"
-              description="Description of program 2."
+              image={maleUser}
+              title="Teacher 2"
+              description="Description of Teacher 2."
             />
             <Card
-              image={programImage1}
-              title="Program 3"
-              description="Description of program 3."
+              image={femaleUser}
+              title="Teacher 3"
+              description="Description of Teacher 3."
             />
             <Card
-              image={programImage1}
-              title="Program 4"
-              description="Description of program 4."
+              image={femaleUser}
+              title="Teacher 4"
+              description="Description of Teacher 4."
             />
           </div>
         </section>
@@ -52,19 +47,19 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
             <NoticeCard
               title="News Title 1"
-              description="Description of news 1."
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus iaculis, porttitor diam venenatis, vestibulum felis. Praesent sed neque est. Fusce egestas lacus eu felis dignissim mattis. Morbi tristique eros a est mollis, nec elementum risus rhoncus. Fusce dignissim luctus elit quis dignissim."
             />
             <NoticeCard
               title="News Title 2"
-              description="Description of news 2."
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus iaculis, porttitor diam venenatis, vestibulum felis. Praesent sed neque est. Fusce egestas lacus eu felis dignissim mattis. Morbi tristique eros a est mollis, nec elementum risus rhoncus. Fusce dignissim luctus elit quis dignissim."
             />
             <NoticeCard
               title="News Title 3"
-              description="Description of news 3."
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus iaculis, porttitor diam venenatis, vestibulum felis. Praesent sed neque est. Fusce egestas lacus eu felis dignissim mattis. Morbi tristique eros a est mollis, nec elementum risus rhoncus. Fusce dignissim luctus elit quis dignissim."
             />
             <NoticeCard
               title="News Title 4"
-              description="Description of news 4."
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus iaculis, porttitor diam venenatis, vestibulum felis. Praesent sed neque est. Fusce egestas lacus eu felis dignissim mattis. Morbi tristique eros a est mollis, nec elementum risus rhoncus. Fusce dignissim luctus elit quis dignissim."
             />
           </div>
         </section>
